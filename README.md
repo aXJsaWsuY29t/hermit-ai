@@ -18,6 +18,8 @@ hermit-ai is split into two modules:
 
 ```bash
 cd hermit-llm
+python -m venv venv
+venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
@@ -25,6 +27,8 @@ pip install -r requirements.txt
 
 ```bash
 cd hermit-chat
+python -m venv venv
+venv\Scripts\activate
 pip install -r requirements.txt
 ```
 

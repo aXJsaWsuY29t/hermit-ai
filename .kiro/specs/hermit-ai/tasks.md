@@ -16,7 +16,7 @@ script, then wire everything together in the hermit-chat API server and frontend
   - Create `hermit-chat/tests/` directory with an empty `__init__.py`
   - _Requirements: 10.4, 10.5_
 
-- [-] 2. Implement `CharTokenizer`
+- [x] 2. Implement `CharTokenizer`
   - [x] 2.1 Implement `hermit-llm/tokenizer.py`
     - Write `CharTokenizer.__init__` that builds `_char_to_id` and `_id_to_char` dicts from all unique characters in the input string
     - Expose `vocab_size` property
@@ -25,25 +25,25 @@ script, then wire everything together in the hermit-chat API server and frontend
     - Add inline comments explaining each step
     - _Requirements: 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7_
 
-  - [ ]* 2.2 Write property test: vocab size equals unique character count (Property 1)
+  - [x]* 2.2 Write property test: vocab size equals unique character count (Property 1)
     - **Property 1: Vocabulary size equals unique character count**
     - **Validates: Requirements 1.1, 1.2**
     - Use `@given(st.text(min_size=1))` with `@settings(max_examples=100)`
     - Assert `tokenizer.vocab_size == len(set(text))`
 
-  - [ ]* 2.3 Write property test: encode–decode round trip (Property 2)
+  - [x]* 2.3 Write property test: encode–decode round trip (Property 2)
     - **Property 2: Encode–decode round trip**
     - **Validates: Requirements 1.3, 1.4, 1.6**
     - Build a tokenizer from a fixed corpus; draw strings from its vocabulary characters
     - Assert `tokenizer.decode(tokenizer.encode(text)) == text`
 
-  - [ ]* 2.4 Write property test: encode raises KeyError for unknown characters (Property 3)
+  - [x]* 2.4 Write property test: encode raises KeyError for unknown characters (Property 3)
     - **Property 3: Encode raises KeyError for unknown characters**
     - **Validates: Requirements 1.5**
     - Build a tokenizer from a small corpus; draw strings containing at least one out-of-vocab character
     - Assert `pytest.raises(KeyError)`
 
-  - [ ]* 2.5 Write property test: tokenizer pickle round trip (Property 4)
+  - [x]* 2.5 Write property test: tokenizer pickle round trip (Property 4)
     - **Property 4: Tokenizer pickle round trip**
     - **Validates: Requirements 1.7**
     - Pickle and unpickle a tokenizer; assert same `vocab_size` and identical encode/decode behavior
