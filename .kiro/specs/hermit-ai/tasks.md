@@ -9,7 +9,7 @@ script, then wire everything together in the hermit-chat API server and frontend
 
 ## Tasks
 
-- [ ] 1. Set up project structure and dependencies
+- [x] 1. Set up project structure and dependencies
   - Create `hermit-llm/` directory with `requirements.txt` listing `torch`, `hypothesis`, `pytest`
   - Create `hermit-llm/tests/` directory with an empty `__init__.py`
   - Create `hermit-chat/` directory with `requirements.txt` listing `flask`, `flask-cors`, `pytest`
