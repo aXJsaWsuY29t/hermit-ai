@@ -16,8 +16,8 @@ script, then wire everything together in the hermit-chat API server and frontend
   - Create `hermit-chat/tests/` directory with an empty `__init__.py`
   - _Requirements: 10.4, 10.5_
 
-- [ ] 2. Implement `CharTokenizer`
-  - [ ] 2.1 Implement `hermit-llm/tokenizer.py`
+- [-] 2. Implement `CharTokenizer`
+  - [x] 2.1 Implement `hermit-llm/tokenizer.py`
     - Write `CharTokenizer.__init__` that builds `_char_to_id` and `_id_to_char` dicts from all unique characters in the input string
     - Expose `vocab_size` property
     - Implement `encode(text) -> list[int]` raising `KeyError` for unknown characters

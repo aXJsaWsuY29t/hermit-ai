@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1] - CharTokenizer
+
+### Added
+- `hermit-llm/tokenizer.py` — character-level tokenizer with `encode()`, `decode()`, and `vocab_size`
+- Raises `KeyError` with descriptive message for unknown characters
+- Fully picklable alongside model checkpoints
+
 ## [0.1.0] - Project Structure
 
 ### Added
