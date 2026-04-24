@@ -1,6 +1,16 @@
 # Changelog
 
-## [0.2.5] - CharTokenizer tests
+## [0.4.5] - CausalSelfAttention + tests
+
+### Added
+- `hermit-llm/attention.py` — multi-head causal self-attention with QKV projection, causal mask, scaled dot-product, and output projection
+- `hermit-llm/tests/test_attention.py` — 11 tests (6 unit + 4 property-based)
+  - Property 5: invalid head config raises AssertionError
+  - Property 6: shape preservation
+  - Property 7: causal masking (future tokens don't affect past output)
+  - Property 8: dropout stochasticity vs. eval determinism
+
+
 
 ### Added
 - `hermit-llm/tests/test_tokenizer.py` — 13 tests (8 unit + 4 property-based)

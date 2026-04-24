@@ -48,34 +48,34 @@ script, then wire everything together in the hermit-chat API server and frontend
     - **Validates: Requirements 1.7**
     - Pickle and unpickle a tokenizer; assert same `vocab_size` and identical encode/decode behavior
 
-- [ ] 3. Checkpoint — tokenizer
+- [x] 3. Checkpoint — tokenizer
   - Ensure all tokenizer tests pass, ask the user if questions arise.
 
-- [ ] 4. Implement `CausalSelfAttention`
-  - [ ] 4.1 Implement `hermit-llm/attention.py`
+- [x] 4. Implement `CausalSelfAttention`
+  - [x] 4.1 Implement `hermit-llm/attention.py`
     - Write `CausalSelfAttention.__init__` with combined QKV projection, output projection, causal mask buffer, and dropout
     - Assert `embed_dim % num_heads == 0` at construction time
     - Implement `forward(x)` splitting heads via `view`/`transpose`, computing scaled dot-product attention with causal mask, merging heads, and applying output projection
     - Add inline comments explaining the math at each step (scaling by `sqrt(head_dim)`, masking, softmax)
     - _Requirements: 2.1, 2.2, 2.3, 2.4, 2.5, 2.6_
 
-  - [ ]* 4.2 Write property test: invalid head configuration raises AssertionError (Property 5)
+  - [x]* 4.2 Write property test: invalid head configuration raises AssertionError (Property 5)
     - **Property 5: CausalSelfAttention rejects invalid head configuration**
     - **Validates: Requirements 2.2**
     - Draw `(embed_dim, num_heads)` pairs where `embed_dim % num_heads != 0`
     - Assert `AssertionError` is raised at construction
 
-  - [ ]* 4.3 Write property test: shape preservation through attention (Property 6 — attention)
+  - [x]* 4.3 Write property test: shape preservation through attention (Property 6 — attention)
     - **Property 6 (attention): Shape preservation through CausalSelfAttention**
     - **Validates: Requirements 2.3**
     - Draw valid `(B, T, embed_dim)` shapes; assert output shape equals input shape
 
-  - [ ]* 4.4 Write property test: causal masking (Property 7)
+  - [x]* 4.4 Write property test: causal masking (Property 7)
     - **Property 7: Causal masking — future tokens do not influence past outputs**
     - **Validates: Requirements 2.4**
     - Modify token values at positions `j > i`; assert output at position `i` is unchanged
 
-  - [ ]* 4.5 Write property test: dropout stochasticity vs. determinism (Property 8)
+  - [x]* 4.5 Write property test: dropout stochasticity vs. determinism (Property 8)
     - **Property 8: Dropout stochasticity in training mode vs. determinism in eval mode**
     - **Validates: Requirements 2.6**
     - Two forward passes in train mode should (with high probability) differ; two in eval mode must be identical
